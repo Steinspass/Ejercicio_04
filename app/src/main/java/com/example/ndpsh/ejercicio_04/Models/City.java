@@ -2,24 +2,35 @@ package com.example.ndpsh.ejercicio_04.Models;
 
 
 
+import com.example.ndpsh.ejercicio_04.Applications.Apps;
+
 import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+import io.realm.annotations.Required;
 
 public class City extends RealmObject {
 
-
+    @PrimaryKey
     private int Id;
+    @Required
     private String Name;
+    @Required
     private String specs;
-    private int imgback;
-    private RealmList<City> cities;
+    @Required
+    private int image;
+    private float stars;
+
+    public City(){
+
+    }
 
     public City (String Name){
-        this.Id = 0;
+        this.Id = Apps.CityID.incrementAndGet();
         this.Name = Name;
         this.specs = specs;
-        this.imgback = imgback;
-        this.cities = new RealmList<City>();
+        this.image = image;
+        this.stars = stars;
     }
 
     public int getId() {
@@ -46,15 +57,19 @@ public class City extends RealmObject {
         this.specs = specs;
     }
 
-    public int getImgback() {
-        return imgback;
+    public int getImage() {
+        return image;
     }
 
-    public void setImgback(int imgback) {
-        this.imgback = imgback;
+    public void setImage(int image) {
+        this.image = image;
     }
 
-    public RealmList<City> getCities() {
-        return cities;
+    public float getStars() {
+        return stars;
+    }
+
+    public void setStars(float stars) {
+        this.stars = stars;
     }
 }
