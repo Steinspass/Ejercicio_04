@@ -4,7 +4,6 @@ package com.example.ndpsh.ejercicio_04.Models;
 
 import com.example.ndpsh.ejercicio_04.Applications.Apps;
 
-import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 import io.realm.annotations.Required;
@@ -17,15 +16,14 @@ public class City extends RealmObject {
     private String Name;
     @Required
     private String specs;
-    @Required
-    private int image;
+    private String image;
     private float stars;
 
     public City(){
 
     }
 
-    public City (String Name){
+    public City (String Name, String specs, String image, float stars){
         this.Id = Apps.CityID.incrementAndGet();
         this.Name = Name;
         this.specs = specs;
@@ -57,11 +55,11 @@ public class City extends RealmObject {
         this.specs = specs;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

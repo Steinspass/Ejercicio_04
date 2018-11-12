@@ -18,10 +18,17 @@ import java.util.List;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     private Context context;
-    private List<City> city;
+    private List<City> cities;
     private int layout;
     private OnItemClickListener itemClickListener;
     private OnButtonClickListener btnClickListener;
+
+    public MyAdapter (List<City> cities, int layout, OnItemClickListener itemListener, OnButtonClickListener btnListener) {
+        this.cities = cities;
+        this.layout = layout;
+        this.itemClickListener = itemListener;
+        this.btnClickListener = btnListener;
+    }
 
 
     @Override
@@ -34,13 +41,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder( ViewHolder holder, int position) {
-        holder.bind(city.get(position), itemClickListener, btnClickListener);
+        holder.bind(cities.get(position), itemClickListener, btnClickListener);
 
     }
 
     @Override
     public int getItemCount() {
-        return city.size();
+        return cities.size();
     }
 
 
